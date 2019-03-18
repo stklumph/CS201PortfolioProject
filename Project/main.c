@@ -55,15 +55,16 @@ int main(void){
 printf("Welcome to Boggle!\n");
 printf("What size Boggle would you like to play? : \n");
 
-char* playerSize;
-scanf("%s", size);
-int size = atoi( playerSize);
+char* playerSize = "*";
+scanf("%s", playerSize);
+int size = 0;
+size = atoi(playerSize);
 
 printf("Enter a seed (MaxSize = 200): ");
 
-int seed = 0;
-scanf("%d", seed);
-
+char* playerSeed = "*";
+scanf("%s", playerSeed);
+int seed = atoi(playerSeed);
 
 char **array;
 array = generateBoggle(size, seed);
