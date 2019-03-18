@@ -71,8 +71,10 @@ int seed = atoi(playerSeed);
 // this is probably good.
 char **array;
 array = generateBoggle(size, seed);
+//FIXME: insert solveBoggle();
+
 printPuzzle(array, size);
 
-//insert startGame(); 
+//FIXME: insert startGame(); 
   return 0;
 }
