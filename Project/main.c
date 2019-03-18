@@ -66,7 +66,7 @@ scanf("%d", seed);
 
 char **array;
 array = generateBoggle(size, seed);
-printPuzzle(array, 4);
+printPuzzle(array, size);
 
   return 0;
 }
