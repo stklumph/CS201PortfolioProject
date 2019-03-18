@@ -55,8 +55,9 @@ int main(void){
 printf("Welcome to Boggle!\n");
 printf("What size Boggle would you like to play? : \n");
 
-int size = 0;
-scanf("%d", size);
+char* playerSize;
+scanf("%s", size);
+int size = atoi( playerSize);
 
 printf("Enter a seed (MaxSize = 200): ");
 
