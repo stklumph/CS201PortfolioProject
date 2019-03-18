@@ -55,7 +55,9 @@ int main(void){
 printf("Welcome to Boggle!\n");
 
 //Load the dictionary file
-char ** dict = loadDictionary();
+Dictionary *dict = malloc(sizeof(Dictionary));
+dict->dictLen = 0;
+loadDictionary(dict);
 
 
 printf("What size Boggle would you like to play? : \n");
@@ -81,5 +83,8 @@ array = generateBoggle(size, seed);
 printPuzzle(array, size);
 
 //FIXME: insert startGame();
+
+
+free(dict);
   return 0;
 }
