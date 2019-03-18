@@ -55,6 +55,7 @@ int main(void){
 printf("Welcome to Boggle!\n");
 printf("What size Boggle would you like to play? : \n");
 
+// reduce to getBoggleSize();
 char playerSize[100];
 scanf("%s", playerSize);
 int size = 0;
@@ -62,13 +63,16 @@ size = atoi(playerSize);
 
 printf("Enter a seed (MaxSize = 200): ");
 
+// reduce to getBoggleSeed();
 char playerSeed[200];
 scanf("%s", playerSeed);
 int seed = atoi(playerSeed);
 
+// this is probably good.
 char **array;
 array = generateBoggle(size, seed);
 printPuzzle(array, size);
 
+//insert startGame(); 
   return 0;
 }
