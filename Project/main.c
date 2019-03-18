@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "Portfolio.h"
 
 //Function to print out the Boggle Puzzle
 //Takes in a two dimensional array, and the size of the array
@@ -53,6 +53,11 @@ int main(void){
 
 //Greet the Player
 printf("Welcome to Boggle!\n");
+
+//Load the dictionary file
+char ** dict = loadDictionary();
+
+
 printf("What size Boggle would you like to play? : \n");
 
 // reduce to getBoggleSize();
@@ -75,6 +80,6 @@ array = generateBoggle(size, seed);
 
 printPuzzle(array, size);
 
-//FIXME: insert startGame(); 
+//FIXME: insert startGame();
   return 0;
 }
