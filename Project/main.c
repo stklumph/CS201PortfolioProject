@@ -3,35 +3,13 @@
 #include <string.h>
 #include "Portfolio.h"
 
-//Function to print out the Boggle Puzzle
-//Takes in a two dimensional array, and the size of the array
-void printPuzzle(char **array, int size){
-
-//start by print a newline and a tab
-printf("\n\t");
-
-//Nested loop to run through the entire puzzle
-for(int a=0; a<size; a++){
-  for(int b=0; b<size; b++){
-      printf("%c", array[a][b]); //print out one element in the array
-    }
-  //check to see if at the end of a line
-  if(a<size-1)
-    //if at the end of a line, print a newline and a tab
-    printf("\n\t");
-  else
-  printf("\n");
-}
-printf("\n");
-  return;
-}
 
 //Function to generate a new Boggle map in a two dimensional array
 //Takes in a size of an array, and a seed to generate.
 char ** generateBoggle(int size, int seed){
 
 char **array;
-array = allocateArray(size, size);
+array = allocateCharArray(size, size);
 
 srand(seed);
 char newChar;
@@ -77,7 +55,7 @@ char **Boggle;
 Boggle = generateBoggle(size, seed);
 
 Dictionary *wordList = malloc(sizeof(Dictionary));
-wordList->diction = allocateArray(400000, 100);
+wordList->diction = allocateCharArray(400000, 100);
 wordList->dictLen = 0;
 //FIXME: insert solveBoggle();
 solveBoggle(Boggle, size, dict, wordList);
