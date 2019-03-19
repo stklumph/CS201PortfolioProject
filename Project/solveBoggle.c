@@ -1,10 +1,12 @@
+//Function to solve the Boggle Board
+
 void solveBoggle(char **Boggle, int Boardsize, Dictionary *dict, Dictionary *wordList){
 /*
 Note: the dictionary used with this program contains no words of length greater than 100
 thus, there is no reason to allocate more memory than 100 characters for a word.
 */
 
-char word[1000];
+char word[1000] = "";
 int **boardPos;
 int depth = 0;
 boardPos = allocateIntArray(Boardsize, Boardsize);

@@ -15,7 +15,7 @@ srand(seed);
 char newChar;
 for(int a=0; a<size; a++){
 for(int b=0; b<size; b++){
-newChar = 'A' + (rand() % 26);
+newChar = 'a' + (rand() % 26);
 array[a][b] = newChar;
 }
 }

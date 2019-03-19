@@ -9,7 +9,8 @@
     return 0;
   }
 
-
+//Depth first search on a 2d array.
+//Saves space instead of creating a massive graph with pointers.
   void dfs(char **Boggle, int Boardsize, Dictionary *dict, Dictionary *wordList, char *word, int **visited, int x, int y, int depth){
 
     //Values to simplify checking each available neighbor in the matrix.
