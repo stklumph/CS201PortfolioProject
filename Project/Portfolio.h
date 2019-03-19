@@ -1,3 +1,4 @@
+//This file includes all of the files used in this project
 #include "allocateArray.c"
 #include "dictionaryStruct.c"
 #include "PrintPuzzle.c"
@@ -7,3 +8,4 @@
 #include "loadDictionary.c"
 #include "DFS.c"
 #include "solveBoggle.c"
+#include "generateBoggle.c"

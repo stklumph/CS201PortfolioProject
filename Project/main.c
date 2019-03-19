@@ -1,29 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 //File includes all of the files used in this Project
 #include "Portfolio.h"
 
-
-//Function to generate a new Boggle map in a two dimensional array
-//Takes in a size of an array, and a seed to generate.
-char ** generateBoggle(int size, int seed){
-
-char **array;
-array = allocateCharArray(size, size);
-
-srand(seed);
-char newChar;
-for(int a=0; a<size; a++){
-for(int b=0; b<size; b++){
-newChar = 'a' + (rand() % 26);
-array[a][b] = newChar;
-}
-}
-
-  return array;
-}
 
 int main(void){
 
