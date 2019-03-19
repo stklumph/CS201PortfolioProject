@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+//File includes all of the files used in this Project
 #include "Portfolio.h"
 
 
