@@ -31,11 +31,7 @@ printf("\n");
 char ** generateBoggle(int size, int seed){
 
 char **array;
-array = malloc(sizeof(char *) * size);
-
-for(int a=0; a<size; a++){
-  array[a] = malloc(sizeof(char) * size);
-}
+array = allocateArray(size, size);
 
 srand(seed);
 char newChar;
@@ -54,6 +50,7 @@ int main(void){
 //Greet the Player
 printf("Welcome to Boggle!\n");
 
+
 //Load the dictionary file
 Dictionary *dict = malloc(sizeof(Dictionary));
 dict->dictLen = 0;
@@ -68,7 +65,7 @@ scanf("%s", playerSize);
 int size = 0;
 size = atoi(playerSize);
 
-printf("Enter a seed (MaxSize = 200): ");
+printf("Enter a seed (MaxSize = 200, integers only): ");
 
 // reduce to getBoggleSeed();
 char playerSeed[200];
@@ -76,15 +73,24 @@ scanf("%s", playerSeed);
 int seed = atoi(playerSeed);
 
 // this is probably good.
-char **array;
-array = generateBoggle(size, seed);
-//FIXME: insert solveBoggle();
+char **Boggle;
+Boggle = generateBoggle(size, seed);
 
-printPuzzle(array, size);
+Dictionary *wordList = malloc(sizeof(Dictionary));
+wordList->diction = allocateArray(400000, 100);
+wordList->dictLen = 0;
+//FIXME: insert solveBoggle();
+solveBoggle(Boggle, size, dict, wordList);
+
+
+
+printPuzzle(Boggle, size);
 
 //FIXME: insert startGame();
 
-
+//deallocate memory
+free(Boggle);
+free(wordList);
 free(dict);
   return 0;
 }

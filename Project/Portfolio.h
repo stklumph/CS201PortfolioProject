@@ -1,3 +1,5 @@
+#include "allocateArray.c"
 #include "dictionaryStruct.c"
 #include "loadDictionary.c"
+#include "DFS.c"
 #include "solveBoggle.c"

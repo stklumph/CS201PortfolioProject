@@ -7,6 +7,12 @@ if ((fp = fopen("dictionary.txt", "r")) == NULL){ // check to see if file can be
   fclose(fp);
   return;
 }
+printf("Loading Dictionary\n");
+
+dict->diction = (char**)malloc(400000 * sizeof(char *));
+for (int i=0; i<400000; i++){
+    dict->diction[i] = (char*)malloc(100*sizeof(char));
+}
 
 char charIn;
 int wordSize = 0;
@@ -15,18 +21,22 @@ int wordNumber = 0;
 while ((charIn = fgetc(fp)) != EOF){
 if(charIn == ' ' || charIn == '\n'){
   wordNumber++;
+  wordSize = 0;
   }
 else{
-  dict->diction[wordNumber][wordSize] = charIn;
+    dict->diction[wordNumber][wordSize] = charIn;
+    wordSize++;
   }
 }
 
 dict->dictLen = wordNumber;
 
+/* //DEBUG FOR DICTIONARY IN
 for(int a=0; a<dict->dictLen; a++){
   printf("%s\n",dict->diction[a]);
-
 }
+*/
+printf("Dictionary size: %d words\n", dict->dictLen);
 fclose(fp);
 return ;
 }
