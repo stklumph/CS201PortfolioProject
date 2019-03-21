@@ -1,6 +1,7 @@
 //This file includes all of the files used in this project
 #include "allocateArray.c"
 #include "dictionaryStruct.c"
+#include "Trie.c"
 #include "PrintPuzzle.c"
 #include "printWordList.c"
 #include "addToWordList.c"

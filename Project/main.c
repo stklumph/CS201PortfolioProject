@@ -13,10 +13,17 @@ printf("Welcome to Boggle!\n");
 
 
 //Load the dictionary file
-Dictionary *dict = malloc(sizeof(Dictionary));
-dict->dictLen = 0;
-loadDictionary(dict);
+//FIXME:
+Dictionary *dict2 = malloc(sizeof(Dictionary));
+dict2->dictLen = 0;
+loadDictionary(dict2);
 
+TrieNode *dict = newTrieNode();
+putPreDictionaryIntoTrie(dict2, dict);
+
+/*
+loadDictionaryToTrie(dict);
+*/
 
 printf("What size Boggle would you like to play? : \n");
 
@@ -37,10 +44,12 @@ int seed = atoi(playerSeed);
 char **Boggle;
 Boggle = generateBoggle(size, seed);
 
+//FIXME: change to hash table for better lookup
 Dictionary *wordList = malloc(sizeof(Dictionary));
 wordList->diction = allocateCharArray(400000, 100);
 wordList->dictLen = 0;
-//FIXME: insert solveBoggle();
+
+
 solveBoggle(Boggle, size, dict, wordList);
 
 

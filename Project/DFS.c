@@ -18,7 +18,7 @@ The code has been changed and customized to be more compatible for this specific
 
 //Depth first search on a 2d array.
 //Saves space instead of creating a massive graph with pointers.
-  void dfs(char **Boggle, int Boardsize, Dictionary *dict, Dictionary *wordList, char *word, int **visited, int x, int y, int depth){
+  void dfs(char **Boggle, int Boardsize, TrieNode *dict, Dictionary *wordList, char *word, int **visited, int x, int y, int depth){
 
     //Values to simplify checking each available neighbor in the matrix.
     //Note: 0,0 is excluded because that would result in not moving.
@@ -32,7 +32,7 @@ The code has been changed and customized to be more compatible for this specific
     //DEBUG: Check word status
     //printf("%s\n", word);
     //DEBUG: printf("%c", Boggle[x][y]);
-    if ((isInDictionary(word, dict)) == 1){
+    if ((findWordWithTrie(word, dict)) == true){
       addToWordList(word, wordList);
     }
 

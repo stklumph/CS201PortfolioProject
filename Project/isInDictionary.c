@@ -1,5 +1,5 @@
 //Function to check if a word is in the Dictionary.
-//FIXME: redo the search to use binary search to reduce runtime?
+//FIXME: search will be redone using trie
 int isInDictionary(char *word, Dictionary *dict){
   for(int a = 0; a<dict->dictLen; a++){
       if((strcmp(word, dict->diction[a])) == 0){
