@@ -70,7 +70,7 @@ For the purposes of this project and to give the best runtimes, the most efficie
 this tree is to have a function that returns the
 */
 
-/* FIXME: Delete?
+
 TrieNode *getNextNode(TrieNode *currentNode, char nextLetter){
 return currentNode->children[charToIndex(nextLetter)]; //returns the next node at that position, if no node, it will be null.
 }
@@ -78,8 +78,9 @@ return currentNode->children[charToIndex(nextLetter)]; //returns the next node a
 bool isNodeEndOfWord(TrieNode *currentNode){
   return currentNode->isEndOfWord;
 }
-*/
 
+
+//Function to find words in the Trie
 bool findWordWithTrie(char *word, TrieNode *root){
   TrieNode *currentNode = root;
   int length = strlen(word);
@@ -94,4 +95,69 @@ bool findWordWithTrie(char *word, TrieNode *root){
       currentNode = currentNode->children[index];
     }
     return (currentNode != NULL && currentNode->isEndOfWord);
-}
+  }
+
+/* DEBUG
+  // function to display the content of Trie
+  void display(TrieNode* root, char str[], int level)
+  {
+      // If node is leaf node, it indiicates end
+      // of string, so a null charcter is added
+      // and string is displayed
+      if (isNodeEndOfWord(root))
+      {
+          str[level] = '\0';
+          printf("%s\n", str);
+      }
+
+      int i;
+      for (i = 0; i < 26; i++)
+      {
+          // if NON NULL child is found
+          // add parent key to str and
+          // call the display function recursively
+          // for child node
+          if (root->children[i])
+          {
+              str[level] = i + 'a';
+              display(root->children[i], str, level + 1);
+          }
+      }
+  }
+
+*/
+//Function to determine if a given string is a prefix to any word
+  bool isTriePrefix(char *word, TrieNode *root){
+    //printf("called isTriePrefix\n");
+    TrieNode *currentNode = root;
+    int length = strlen(word);
+    int index = 0;
+    int level = 0;
+    bool suffixFound = false;
+      if(strcmp(word, "") == 0 || length == 0){
+        //DEBUG : printf("word is empty, returning false\n");
+        return false;
+      }
+      //first, walk to the end of the word, if at any point the word is not in the trie, return false
+      for (level = 0; level < length; level++){
+        index = charToIndex(word[level]);
+        //printf("%c", word[level]);
+        if(currentNode->children[index] == NULL){
+          printf("next child is empty, returning false\n");
+          return false;
+        }
+      }
+        index = charToIndex(word[level]);
+      if(currentNode->children[index] == NULL){
+      printf("next child is empty, returning false\n");
+      return false;
+      }
+      printf("\n");
+      for(int a=0; a<26; a++){
+        if(currentNode->children[a] != NULL){
+          suffixFound = true;
+        }
+      }
+      return suffixFound;
+
+    }

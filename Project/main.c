@@ -22,7 +22,12 @@ TrieNode *dict = newTrieNode();
 putPreDictionaryIntoTrie(dict2, dict);
 
 /*
-loadDictionaryToTrie(dict);
+//DEBUG: Print Trie
+char str[1000];
+int level = 0;
+display(dict, str, level);
+
+//loadDictionaryToTrie(dict);
 */
 
 printf("What size Boggle would you like to play? : \n");
@@ -52,7 +57,9 @@ wordList->dictLen = 0;
 
 solveBoggle(Boggle, size, dict, wordList);
 
-
+char **hashTable = newHashTable(wordList->dictLen);
+putPreWordListIntoHashTable(wordList, hashTable);
+printStringArray(hashTable, (wordList->dictLen * wordList->dictLen));
 
 printPuzzle(Boggle, size);
 

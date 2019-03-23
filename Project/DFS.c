@@ -6,9 +6,10 @@ The code has been changed and customized to be more compatible for this specific
 
 //Checks whether a position on the board is within Bounds
 //Also checks if a position has been visited.
-  int withinBounds(char **Boggle, int Boardsize, int **visited, int x, int y){
+  int withinBounds(char **Boggle, char *word, int Boardsize, int **visited, int x, int y, TrieNode *root){
     if(x >= 0 && y >=0 && //x and y cannot be less than 0
       x < Boardsize && y < Boardsize //x and y must be less than the size of the board.
+      //&& isTriePrefix(word, root) //checks to see if a word is a prefix to another word.
       && (visited[x][y] == 0)){ //cannot move to a node that has already been visited.
       return 1;
     }
@@ -37,7 +38,7 @@ The code has been changed and customized to be more compatible for this specific
     }
 
     for(int a=0; a<8; ++a){
-        if((withinBounds(Boggle, Boardsize, visited, x+xNeighbor[a], y+yNeighbor[a]))){
+        if((withinBounds(Boggle, word, Boardsize, visited, x+xNeighbor[a], y+yNeighbor[a], dict))){
           dfs(Boggle, Boardsize, dict, wordList, word, visited, x+xNeighbor[a], y+yNeighbor[a], depth);
         }
     }

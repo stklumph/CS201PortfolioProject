@@ -15,7 +15,7 @@ int depth = 0; //int to keep track of how many nodes have been visited in dfs
   for(int x=0; x<Boardsize; x++){
       for(int y=0; y<Boardsize; y++){
         dfs(Boggle, Boardsize, dict, wordList, word, boardPos, x, y, depth);
-        printf("\n");
+        //printf("\n");
     }
   }
 
