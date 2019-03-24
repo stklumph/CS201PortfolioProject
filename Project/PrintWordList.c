@@ -1,8 +1,9 @@
 //Function to print out an entire dictionary of words
+//This is mostly used for DEBUG.
 void printStringArray(char **array, int size){
   for(int a=0; a<size; a++){
     if(array[a][0] != '\0')
-    printf("%s\n", array[a]);
+    printf("%d: %s\n", a, array[a]);
   }
   return;
 }

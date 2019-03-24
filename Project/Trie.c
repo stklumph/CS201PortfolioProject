@@ -135,7 +135,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
     int level = 0;
     bool suffixFound = false;
       if(strcmp(word, "") == 0 || length == 0){
-        //DEBUG : printf("word is empty, returning false\n");
+        printf("word is empty, returning false\n");
         return false;
       }
       //first, walk to the end of the word, if at any point the word is not in the trie, return false
@@ -143,19 +143,24 @@ bool findWordWithTrie(char *word, TrieNode *root){
         index = charToIndex(word[level]);
         //printf("%c", word[level]);
         if(currentNode->children[index] == NULL){
-          printf("next child is empty, returning false\n");
+          printf("word is %s, child at level %d is empty, char %c %c mismatch, returning false\n", word, level, word[level], currentNode->key);
           return false;
         }
+        currentNode = currentNode->children[index];
       }
+/*
         index = charToIndex(word[level]);
       if(currentNode->children[index] == NULL){
       printf("next child is empty, returning false\n");
       return false;
       }
       printf("\n");
+      */
+      printf("word is %s, current letter is %c\n", word, currentNode->key);
       for(int a=0; a<26; a++){
         if(currentNode->children[a] != NULL){
           suffixFound = true;
+
         }
       }
       return suffixFound;

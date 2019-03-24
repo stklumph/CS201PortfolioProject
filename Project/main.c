@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
 //File includes all of the files used in this Project
 #include "Portfolio.h"
 
@@ -34,40 +35,43 @@ printf("What size Boggle would you like to play? : \n");
 
 // reduce to getBoggleSize();
 char playerSize[100];
-scanf("%s", playerSize);
-int size = 0;
-size = atoi(playerSize);
+fgets(playerSize, 100, stdin);
+int size = atoi(playerSize);
 
 printf("Enter a seed (MaxSize = 200, integers only): ");
 
 // reduce to getBoggleSeed();
 char playerSeed[200];
-scanf("%s", playerSeed);
+processUserInput(playerSeed, 100);
 int seed = atoi(playerSeed);
 
-// this is probably good.
 char **Boggle;
 Boggle = generateBoggle(size, seed);
 
 //FIXME: change to hash table for better lookup
+/*
 Dictionary *wordList = malloc(sizeof(Dictionary));
 wordList->diction = allocateCharArray(400000, 100);
 wordList->dictLen = 0;
+*/
+char **hashTable = newHashTable(200000);
+//putPreWordListIntoHashTable(wordList, hashTable);
 
+solveBoggle(Boggle, size, dict, hashTable, 200000);
 
-solveBoggle(Boggle, size, dict, wordList);
-
-char **hashTable = newHashTable(wordList->dictLen);
-putPreWordListIntoHashTable(wordList, hashTable);
-printStringArray(hashTable, (wordList->dictLen * wordList->dictLen));
+//DEBUG: print Hash Table contents
+printf("Hash Table Contents:\n");
+printStringArray(hashTable, 200000);
 
 printPuzzle(Boggle, size);
 
 //FIXME: insert startGame();
+startGame(Boggle, size, hashTable, 200000);
+
 
 //deallocate memory
 free(Boggle);
-free(wordList);
+//free(wordList);
 free(dict);
   return 0;
 }

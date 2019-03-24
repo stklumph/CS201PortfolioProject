@@ -6,7 +6,7 @@ Since the goal is to store words in this hash table, it will also be a two dimen
 
 //Function to create a new hash table based on a size.
 char **newHashTable(int size){
-return allocateCharArray(size*size, 1000);
+return allocateCharArray(size, 1000);
 }
 
 /*

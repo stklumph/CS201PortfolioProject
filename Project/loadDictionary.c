@@ -12,6 +12,7 @@ printf("Loading Dictionary\n");
 dict->diction = (char**)malloc(400000 * sizeof(char *));
 for (int i=0; i<400000; i++){
     dict->diction[i] = (char*)malloc(100*sizeof(char));
+    memset(dict->diction[i], '\0', 100);
 }
 
 char charIn;
@@ -24,7 +25,7 @@ if(charIn == ' ' || charIn == '\n'){
   wordSize = 0;
   }
 else{
-    dict->diction[wordNumber][wordSize] = charIn;
+    dict->diction[wordNumber][wordSize] = tolower(charIn);
     wordSize++;
   }
 }

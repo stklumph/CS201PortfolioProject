@@ -5,7 +5,8 @@ array = malloc(sizeof(char *) * rows);
 
 for(int a=0; a<rows; a++){
   array[a] = malloc(sizeof(char) * columns);
-  array[a][0] = '\0';
+  memset(array[a], '\0', columns);
+  //array[a][0] = '\0';
 }
 return array;
 }
