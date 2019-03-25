@@ -97,7 +97,26 @@ bool findWordWithTrie(char *word, TrieNode *root){
     return (currentNode != NULL && currentNode->isEndOfWord);
   }
 
-/* DEBUG
+  TrieNode * getEndOfWordWithTrie(char *word, TrieNode *root){
+    TrieNode *currentNode = root;
+    int length = strlen(word);
+    int index = 0;
+
+      for (int level = 0; level < length; level++){
+        index = charToIndex(word[level]);
+
+        if(currentNode->children[index] == NULL){
+          return NULL;
+
+        }
+        currentNode = currentNode->children[index];
+      }
+      //DEBUG: printf("current char : %c\n", currentNode->key);
+      return currentNode;
+    }
+
+
+// DEBUG
   // function to display the content of Trie
   void display(TrieNode* root, char str[], int level)
   {
@@ -125,15 +144,20 @@ bool findWordWithTrie(char *word, TrieNode *root){
       }
   }
 
-*/
+
 //Function to determine if a given string is a prefix to any word
   bool isTriePrefix(char *word, TrieNode *root){
     //printf("called isTriePrefix\n");
+
+
     TrieNode *currentNode = root;
+    currentNode = getEndOfWordWithTrie(word, currentNode);
+    if(currentNode == NULL) return false;
+    bool suffixFound = false;
+    /*
     int length = strlen(word);
     int index = 0;
     int level = 0;
-    bool suffixFound = false;
       if(strcmp(word, "") == 0 || length == 0){
         printf("word is empty, returning false\n");
         return false;
@@ -147,7 +171,9 @@ bool findWordWithTrie(char *word, TrieNode *root){
           return false;
         }
         currentNode = currentNode->children[index];
+        printf("%c", currentNode->key);
       }
+      */
 /*
         index = charToIndex(word[level]);
       if(currentNode->children[index] == NULL){
@@ -156,7 +182,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
       }
       printf("\n");
       */
-      printf("word is %s, current letter is %c\n", word, currentNode->key);
+      //DEBUG: printf("word is %s, current letter is %c\n", word, currentNode->key);
       for(int a=0; a<26; a++){
         if(currentNode->children[a] != NULL){
           suffixFound = true;

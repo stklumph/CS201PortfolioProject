@@ -29,8 +29,8 @@ int level = 0;
 display(dict, str, level);
 
 //loadDictionaryToTrie(dict);
+scanf("%s", str);
 */
-
 printf("What size Boggle would you like to play? : \n");
 
 // reduce to getBoggleSize();
