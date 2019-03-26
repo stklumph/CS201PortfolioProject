@@ -2,6 +2,7 @@
 //Takes in a two dimensional array, and the size of the array
 void printPuzzle(char **array, int size){
 
+printf("Boggle Board: \n\n");
 //start by print a newline and a tab
 printf("\n\t");
 

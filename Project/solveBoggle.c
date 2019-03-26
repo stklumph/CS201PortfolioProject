@@ -19,7 +19,7 @@ int depth = 0; //int to keep track of how many nodes have been visited in dfs
     }
   }
 //DEBUG:
-printf("DFS complete\n");
+//printf("DFS complete\n");
 free(boardPos);// return the memory for boardPos, not needed after the board is solved
   //printWordList(wordList); //DEBUG: check to see what words were added to the wordList.
   //FIXMEL Possible necesary addition of a sort for the wordList

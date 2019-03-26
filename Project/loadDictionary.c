@@ -3,9 +3,9 @@ void loadDictionary(Dictionary *dict){
 //open dictionary file
 FILE *fp; //file pointer
 if ((fp = fopen("dictionary.txt", "r")) == NULL){ // check to see if file can be opened
-  printf("ERROR LOADING DICTIONARY\n\n"); //print error message if necessary
+  printf("ERROR LOADING DICTIONARY : DICTIONARY NOT FOUND\n\n"); //print error message if necessary
   fclose(fp);
-  return;
+  exit(1);
 }
 printf("Loading Dictionary\n");
 
