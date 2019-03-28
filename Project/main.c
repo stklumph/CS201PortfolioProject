@@ -16,7 +16,8 @@ int main(void){
 printf("Welcome to Boggle!\n");
 bool gameContinue = true;
 bool validInput = true;
-int gameNumber = 1;
+unsigned int gameNumber = 1;
+unsigned int maxScore = 0;
 //Load the dictionary file
 //FIXME:
 Dictionary *dict2 = malloc(sizeof(Dictionary));
@@ -80,9 +81,11 @@ printStringArray(hashTable, 200000);
 printPuzzle(Boggle, size);
 
 //FIXME: insert startGame();
-startGame(Boggle, size, hashTable, 200000);
+unsigned int score = startGame(Boggle, size, hashTable, 200000);
+if(score > maxScore)
+  maxScore = score;
 
-
+printf("Max score: %d\n", maxScore);
 printf("Would you like to play again?\n type 'yes' or 'no'\n" );
 processUserInput(userInput, 200);
 if(strcmp(userInput, "no") == 0){
@@ -95,6 +98,7 @@ if(strcmp(userInput, "no") == 0){
 else if(strcmp(userInput, "yes") == 0){
   gameNumber++;
   printf("Game %d\n", gameNumber);
+  free(Boggle);
   validInput = true;
 }
 else{

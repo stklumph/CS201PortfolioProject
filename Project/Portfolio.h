@@ -13,3 +13,4 @@
 #include "solveBoggle.c"
 #include "generateBoggle.c"
 #include "startGame.c"
+#include "deallocateArray.c"
