@@ -2,6 +2,7 @@
 #include "allocateArray.c"
 #include "dictionaryStruct.c"
 #include "processUserInput.c"
+#include "getUserInput.c"
 #include "Trie.c"
 #include "HashTable.c"
 #include "PrintPuzzle.c"

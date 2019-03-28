@@ -15,15 +15,17 @@ bool gameContinue = true;
 bool validInput = true;
 unsigned int gameNumber = 1;
 unsigned int maxScore = 0;
+char userInput[200];
 //Load the dictionary file
 //FIXME:
+/*
 Dictionary *dict2 = malloc(sizeof(Dictionary));
 dict2->dictLen = 0;
 loadDictionary(dict2);
-
+*/
 TrieNode *dict = newTrieNode();
-putPreDictionaryIntoTrie(dict2, dict);
-
+//putPreDictionaryIntoTrie(dict2, dict);
+int dictionarySize = loadDictionaryToTrie(dict);
 /*
 //DEBUG: Print Trie
 char str[1000];
@@ -33,42 +35,23 @@ display(dict, str, level);
 //loadDictionaryToTrie(dict);
 scanf("%s", str);
 */
-while(gameContinue == true){
-printf("What size Boggle would you like to play? (integers only): \n");
-int size = 1;
-// reduce to getBoggleSize();
-char userInput[200];
-fgets(userInput, 200, stdin);
-if(atoi(userInput) > 1 ){
-  size = atoi(userInput);
-  validInput = true;
-}
-else{
-  validInput = false;
-}
-while(!validInput){
-  printf("Error! Invalid Board size. Please try again.\n");
-  processUserInput(userInput, 200);
-  if(atoi(userInput) > 1){
-    size = atoi(userInput);
-    validInput = true;
-  }
-}
-printf("Enter a seed (integers only): ");
 
-// reduce to getBoggleSeed();
-//char playerSeed[200];
-processUserInput(userInput, 200);
-int seed = atoi(userInput);
+while(gameContinue == true){
+  int size = getBoggleSize();
+  int seed = getBoggleSeed();
 
 char **Boggle;
 Boggle = generateBoggle(size, seed);
 
-
-char **hashTable = newHashTable(200000);
+int hashTableSize = 2*dictionarySize;
+if(hashTableSize < 0){
+  printf("Error with size of dictionary.\n");
+  exit(1);
+}
+char **hashTable = newHashTable(hashTableSize);
 //putPreWordListIntoHashTable(wordList, hashTable);
 
-solveBoggle(Boggle, size, dict, hashTable, 200000);
+solveBoggle(Boggle, size, dict, hashTable, hashTableSize);
 
 //DEBUG: print Hash Table contents
 /*
@@ -78,7 +61,7 @@ printStringArray(hashTable, 200000);
 printPuzzle(Boggle, size);
 
 //FIXME: insert startGame();
-unsigned int score = startGame(Boggle, size, hashTable, 200000);
+unsigned int score = startGame(Boggle, size, hashTable, hashTableSize);
 if(score > maxScore)
   maxScore = score;
 
@@ -107,7 +90,7 @@ while(!validInput){
   if(strcmp(userInput, "no") == 0){
     //deallocate memory
     free(Boggle);
-    
+
     free(dict);
     return 0;
   }

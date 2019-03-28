@@ -48,17 +48,18 @@ void putPreDictionaryIntoTrie(Dictionary *dict, TrieNode *root){
   }
 }
 
-void loadDictionaryToTrie(TrieNode *root){
+int loadDictionaryToTrie(TrieNode *root){
 
 //open dictionary file
 FILE *fp; //file pointer
 if ((fp = fopen("dictionary.txt", "r")) == NULL){ // check to see if file can be opened
   printf("ERROR LOADING DICTIONARY\n\n"); //print error message if necessary
   fclose(fp);
-  return;
+  exit(1);
 }
 printf("Loading Dictionary\n");
 char wordBuild[1000];
+memset(wordBuild, '\0', 1000);
 char charIn;
 int wordSize = 0;
 int wordNumber = 0;
@@ -71,8 +72,8 @@ if(charIn == ' ' || charIn == '\n'){
   memset(wordBuild, '\0', 1000);
   }
 else{
-  wordBuild[wordSize] = towlower(charIn);
-  printf("word is %s", wordBuild);
+  wordBuild[wordSize] = tolower(charIn);
+  //printf("word is %s", wordBuild);
     wordSize++;
   }
 }
@@ -86,5 +87,5 @@ for(int a=0; a<dict->dictLen; a++){
 */
 printf("Dictionary size: %d words\n", wordNumber);
 fclose(fp);
-return ;
+return wordNumber;
 }
