@@ -6,9 +6,6 @@
 //File includes all of the files used in this Project
 #include "Portfolio.h"
 
-//HASH_SIZE is defined at 200,000 because the size of the dictionary is just over 100,000
-//Thus, the assumption is made that 200,000 will be a decent size for a hashTable.
-#define HASH_SIZE 200000
 
 int main(void){
 
@@ -57,7 +54,7 @@ while(!validInput){
     validInput = true;
   }
 }
-printf("Enter a seed (MaxSize = 200, integers only): ");
+printf("Enter a seed (integers only): ");
 
 // reduce to getBoggleSeed();
 //char playerSeed[200];
@@ -91,7 +88,6 @@ processUserInput(userInput, 200);
 if(strcmp(userInput, "no") == 0){
   //deallocate memory
   free(Boggle);
-  //free(wordList);
   free(dict);
   return 0;
 }
@@ -111,7 +107,7 @@ while(!validInput){
   if(strcmp(userInput, "no") == 0){
     //deallocate memory
     free(Boggle);
-    //free(wordList);
+    
     free(dict);
     return 0;
   }

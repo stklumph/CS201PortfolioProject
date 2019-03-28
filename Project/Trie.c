@@ -65,10 +65,7 @@ void insertTrieNode(TrieNode *root, const char *key){
     currentNode->isEndOfWord = true; // last inserted Node holds a character that is the end of a word.
 }
 
-/*FIXME:
-For the purposes of this project and to give the best runtimes, the most efficient way to check through
-this tree is to have a function that returns the
-*/
+
 
 
 TrieNode *getNextNode(TrieNode *currentNode, char nextLetter){
@@ -116,7 +113,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
     }
 
 
-// DEBUG
+// DEBUG::
   // function to display the content of Trie
   void display(TrieNode* root, char str[], int level)
   {
@@ -149,39 +146,10 @@ bool findWordWithTrie(char *word, TrieNode *root){
   bool isTriePrefix(char *word, TrieNode *root){
     //printf("called isTriePrefix\n");
 
-
     TrieNode *currentNode = root;
     currentNode = getEndOfWordWithTrie(word, currentNode);
     if(currentNode == NULL) return false;
     bool suffixFound = false;
-    /*
-    int length = strlen(word);
-    int index = 0;
-    int level = 0;
-      if(strcmp(word, "") == 0 || length == 0){
-        printf("word is empty, returning false\n");
-        return false;
-      }
-      //first, walk to the end of the word, if at any point the word is not in the trie, return false
-      for (level = 0; level < length; level++){
-        index = charToIndex(word[level]);
-        //printf("%c", word[level]);
-        if(currentNode->children[index] == NULL){
-          printf("word is %s, child at level %d is empty, char %c %c mismatch, returning false\n", word, level, word[level], currentNode->key);
-          return false;
-        }
-        currentNode = currentNode->children[index];
-        printf("%c", currentNode->key);
-      }
-      */
-/*
-        index = charToIndex(word[level]);
-      if(currentNode->children[index] == NULL){
-      printf("next child is empty, returning false\n");
-      return false;
-      }
-      printf("\n");
-      */
       //DEBUG: printf("word is %s, current letter is %c\n", word, currentNode->key);
       for(int a=0; a<26; a++){
         if(currentNode->children[a] != NULL){

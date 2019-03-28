@@ -68,10 +68,10 @@ if(charIn == ' ' || charIn == '\n'){
   insertTrieNode(root, wordBuild);
   wordNumber++;
   wordSize = 0;
-  strcpy(wordBuild, "");
+  memset(wordBuild, '\0', 1000);
   }
 else{
-  wordBuild[wordSize] = charIn;
+  wordBuild[wordSize] = towlower(charIn);
   printf("word is %s", wordBuild);
     wordSize++;
   }
