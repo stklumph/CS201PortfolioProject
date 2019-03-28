@@ -37,11 +37,11 @@ scanf("%s", str);
 */
 
 while(gameContinue == true){
-  int size = getBoggleSize();
+  int boggleSize = getBoggleSize();
   int seed = getBoggleSeed();
 
 char **Boggle;
-Boggle = generateBoggle(size, seed);
+Boggle = generateBoggle(boggleSize, seed);
 
 int hashTableSize = 2*dictionarySize;
 if(hashTableSize < 0){
@@ -51,17 +51,17 @@ if(hashTableSize < 0){
 char **hashTable = newHashTable(hashTableSize);
 //putPreWordListIntoHashTable(wordList, hashTable);
 
-solveBoggle(Boggle, size, dict, hashTable, hashTableSize);
+solveBoggle(Boggle, boggleSize, dict, hashTable, hashTableSize);
 
 //DEBUG: print Hash Table contents
 /*
 printf("Hash Table Contents:\n");
 printStringArray(hashTable, 200000);
 */
-printPuzzle(Boggle, size);
+printPuzzle(Boggle, boggleSize);
 
 //FIXME: insert startGame();
-unsigned int score = startGame(Boggle, size, hashTable, hashTableSize);
+unsigned int score = startGame(Boggle, boggleSize, hashTable, hashTableSize);
 if(score > maxScore)
   maxScore = score;
 
@@ -100,7 +100,7 @@ while(!validInput){
     validInput = true;
   }
   else{
-    printf("Error invalid input, please type 'yes' or 'no'");
+    printf("Error invalid input, please type 'yes' or 'no\n");
     validInput = false;
   }
 }

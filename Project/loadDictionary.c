@@ -51,6 +51,7 @@ void putPreDictionaryIntoTrie(Dictionary *dict, TrieNode *root){
 int loadDictionaryToTrie(TrieNode *root){
 
 //open dictionary file
+//Dictionary File I used comes from https://raw.githubusercontent.com/hillmanov/go-boggle/master/dictionary.txt
 FILE *fp; //file pointer
 if ((fp = fopen("dictionary.txt", "r")) == NULL){ // check to see if file can be opened
   printf("ERROR LOADING DICTIONARY\n\n"); //print error message if necessary
@@ -80,11 +81,6 @@ else{
 
 
 
-/* //DEBUG FOR DICTIONARY IN
-for(int a=0; a<dict->dictLen; a++){
-  printf("%s\n",dict->diction[a]);
-}
-*/
 printf("Dictionary size: %d words\n", wordNumber);
 fclose(fp);
 return wordNumber;
