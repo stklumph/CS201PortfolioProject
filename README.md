@@ -7,30 +7,30 @@ Portfolio Project for CS201 Spring 2019
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 1. Download the repository as a zip file
 
-  * ![clone1](https://i.imgur.com/7XB5Ua9.png)  
+   ![clone1](https://i.imgur.com/7XB5Ua9.png)  
 
-  * ![clone2](https://imgur.com/2BRfmF1)  
+   ![clone2](https://i.imgur.com/2BRfmF1.png)  
 
 2. Extract the files
 
-  * ![extract](https://imgur.com/meux86N)  
+   ![extract](https://i.imgur.com/meux86N.png)  
 
 3. Download the dictionary file, and name it "dictionary.txt"
 
-  * ![dictionary1](https://imgur.com/9MGNY4b)  
+   ![dictionary1](https://i.imgur.com/9MGNY4b.png)  
 
-  * ![dictionary2](https://imgur.com/qQVC60r)  
+   ![dictionary2](https://i.imgur.com/qQVC60r.png)  
 4. Move to the directory where the extracted files are located
 
-  * ![directory](https://imgur.com/X4hgMg8)  
+   ![directory](https://i.imgur.com/X4hgMg8.png)  
 
 5. Run the make file to compile it
 
-  * ![make](https://imgur.com/jaYaBEk)  
+   ![make](https://i.imgur.com/jaYaBEk.png)  
 
 6. Run ./Boggle
 
-  * ![run](https://imgur.com/6WTD6cV)  
+   ![run](https://i.imgur.com/6WTD6cV.png)  
 
 This will start the program.
 
