@@ -42,6 +42,7 @@ int charToIndex(char c){
   return (int)c - (int)'a';
 }
 
+//Function to add a new Trie node to the Trie structure
 void insertTrieNode(TrieNode *root, const char *key){
   //printf("Called insertTrieNode\n");
 
@@ -94,6 +95,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
     return (currentNode != NULL && currentNode->isEndOfWord);
   }
 
+//Fuction to find the node assosciated with the last letter of a word in the Trie
   TrieNode * getEndOfWordWithTrie(char *word, TrieNode *root){
     TrieNode *currentNode = root;
     int length = strlen(word);
@@ -108,16 +110,16 @@ bool findWordWithTrie(char *word, TrieNode *root){
         }
         currentNode = currentNode->children[index];
       }
-      //DEBUG: printf("current char : %c\n", currentNode->key);
+
       return currentNode;
     }
 
-
+/*
 // DEBUG::
   // function to display the content of Trie
   void display(TrieNode* root, char str[], int level)
   {
-      // If node is leaf node, it indiicates end
+      // If node is leaf node, it indicates end
       // of string, so a null charcter is added
       // and string is displayed
       if (isNodeEndOfWord(root))
@@ -140,8 +142,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
           }
       }
   }
-
-
+*/
 //Function to determine if a given string is a prefix to any word
   bool isTriePrefix(char *word, TrieNode *root){
     //printf("called isTriePrefix\n");
