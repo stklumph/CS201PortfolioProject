@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Dictionary File
 
-
+* Found here http://boulter.com/scrabble/words/words.txt
 
 
 ## Built With
@@ -20,13 +20,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Authors
 
-* **Seth Klumph** 
+* **Seth Klumph**
 
 
 ## Acknowledgments
 
 * Code borrowed from geeksforgeeks for Trie implementation https://www.geeksforgeeks.org/trie-insert-and-search/
 * Code used for djb2 Hash Function http://www.cse.yorku.ca/~oz/hash.html
-* 
-* etc
-* Also thanks to Purple Booth for the  https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+*
+* Also thanks to Purple Booth for the formatting tips on the readme https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
