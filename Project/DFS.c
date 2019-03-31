@@ -10,7 +10,7 @@ The code has been changed and customized to be more compatible for this specific
     if(x >= 0 && y >= 0 && //x and y cannot be less than 0
       x < Boardsize && y < Boardsize //x and y must be less than the size of the board.
       && (visited[x][y] == 0) ){//cannot move to a node that has already been visited.
-      //  && (isTriePrefix(word, root) == true)){ //checks to see if a word is a prefix to another word.
+  
 
       return 1;
 
@@ -27,36 +27,31 @@ The code has been changed and customized to be more compatible for this specific
      int xNeighbor[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
      int yNeighbor[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-    //TrieNode *testNode = newTrieNode();
-    //testNode = currentNode;
+
     visited[x][y] = 1; // mark current positon as visited
     word[depth++] = Boggle[x][y]; //append the character in this positon to the end of the word, and increment depth.
-    //DEBUG: printf("checking word %s \n", word);
+
     if(isTriePrefix(word, dict)){
 
-    //DEBUG: Check word status
-    //printf("%s\n", word);
-    //DEBUG: printf("%c", Boggle[x][y]);
     if ((findWordWithTrie(word, dict)) == true){
-      //addToWordList(word, wordList);
+
       if(isInHashTable(hashTable, word, hashSize) == false) {
         insertToHashTable(hashTable, word, hashSize);
       }
     }
 
     for(int a=0; a<8; a++){
-      //printf("checking xNeighbor %d , yNeighbor %d\n x is %d, y is %d \n", xNeighbor[a], yNeighbor[a], x, y);
 
         if((withinBounds(Boggle, word, Boardsize, visited, x+xNeighbor[a], y+yNeighbor[a], dict)) == 1){
-          //if(testNode != NULL) testNode = getNextNode(currentNode, Boggle[x][y]);
+
           dfs(Boggle, Boardsize, dict, hashTable, word, visited, x+xNeighbor[a], y+yNeighbor[a], depth, hashSize);
         }
-        //DEBUG else printf("%d check was skipped", a);
+
     }
   }
     visited[x][y] = 0; // mark curent position as not visited. This is done to ensure the node can be revisited from other nodes
     word[depth] = '\0'; //decrement the end of the word.
     depth--;
-    //DEBUG printf("word decremented, word is %s\n", word);
+
     return;
   }
