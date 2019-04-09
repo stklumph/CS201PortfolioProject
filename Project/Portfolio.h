@@ -7,7 +7,7 @@
 #include "Trie.c"
 #include "HashTable.c"
 #include "PrintPuzzle.c"
-#include "printWordList.c"
+#include "PrintWordList.c"
 #include "loadDictionary.c"
 #include "DFS.c"
 #include "solveBoggle.c"
