@@ -11,7 +11,6 @@ int loadDictionaryToTrie(TrieNode *root){
 FILE *fp; //file pointer
 if ((fp = fopen("dictionary.txt", "r")) == NULL){ // check to see if file can be opened
   printf("ERROR LOADING DICTIONARY\n\n"); //print error message if necessary
-  fclose(fp);
   exit(1); //if the dictionary does not load, the program will NOT work, so it is best to exit.
 }
 printf("Loading Dictionary\n");
