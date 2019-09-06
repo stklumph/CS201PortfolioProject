@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 /*
 This file is designed to hold all of the functions necessary to implement a hash table for this Project
 The hash table is used for extremely fast lookup of words

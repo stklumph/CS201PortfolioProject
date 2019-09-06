@@ -6,11 +6,7 @@ Dr. Anderson
 */
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-#include <ctype.h>
+
 //File includes all of the files used in this Project
 #include "Portfolio.h"
 

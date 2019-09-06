@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to print out an entire dictionary of words
 //This is mostly used for DEBUG, and !cheat
 

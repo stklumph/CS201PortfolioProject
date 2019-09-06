@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 /*
 Contains Functions Related to Trie for this Project
 A Trie is used here because it gives both a way to effectively search for a word from the dictionary,
@@ -9,7 +11,7 @@ This code was borrowed and edited to simplify the implementation of a Trie data 
 */
 
 
-
+/*
 //Trie node
 typedef struct trieNode {
 //pointers to children nodes, one for each alphabetical letter.
@@ -19,6 +21,7 @@ struct trieNode *children[26];
 char key; // the character the node represents. Important for comparisons
 bool isEndOfWord; //stores whether the character signifies the end of a word
 } TrieNode;
+*/
 
 //Function to creat a new Trie Node
 TrieNode *newTrieNode(){
@@ -150,7 +153,7 @@ bool findWordWithTrie(char *word, TrieNode *root){
     currentNode = getEndOfWordWithTrie(word, currentNode);
     if(currentNode == NULL) return false;
     bool suffixFound = false;
-    
+
       for(int a=0; a<26; a++){
         if(currentNode->children[a] != NULL){
           suffixFound = true;

@@ -4,13 +4,15 @@ The reason this code was used was to simplify the process of a dfs on a 2d array
 The code has been changed and customized to be more compatible for this specific program
 */
 
+#include "Portfolio.h"
+
 //Checks whether a position on the board is within Bounds
 //Also checks if a position has been visited.
   int withinBounds(char **Boggle, char *word, int Boardsize, int **visited, int x, int y, TrieNode *root){
     if(x >= 0 && y >= 0 && //x and y cannot be less than 0
       x < Boardsize && y < Boardsize //x and y must be less than the size of the board.
       && (visited[x][y] == 0) ){//cannot move to a node that has already been visited.
-  
+
 
       return 1;
 

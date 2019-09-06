@@ -1,5 +1,6 @@
 //Functions to allocate memory for new two-dimensional arrays.
 //Two dimensional arrays are common in this project, so functions were made to simplify the process
+#include "Portfolio.h"
 
 char ** allocateCharArray(int rows, int columns){
 

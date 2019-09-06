@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //This function returns the appropriate score depending on the length of a word
 int getWordScore(unsigned int wordLength){
 if(wordLength <= 4){

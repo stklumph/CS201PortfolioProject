@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //The function to run the game part of the game
 unsigned int startGame(char **Boggle, int boggleSize, char **hashTable, int hashSize){
   printf("Game start!\n"); //Tell the user the game is starting

@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to generate a new Boggle map in a two dimensional array
 //Takes in a size of an array, and a seed to generate.
 char ** generateBoggle(int size, int seed){

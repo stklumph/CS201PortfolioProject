@@ -6,3 +6,4 @@ solveBoggle(old&Borked).c
 DFS_Reworkinprog.c
 Boggle.exe*
 dictionaryStruct.c
+*.o

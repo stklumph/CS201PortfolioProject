@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to load the dictionary file for use in the program
 
 int loadDictionaryToTrie(TrieNode *root){

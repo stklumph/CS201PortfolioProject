@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to solve the Boggle Board
 
 void solveBoggle(char **Boggle, int Boardsize, TrieNode* dict, char **hashTable, int hashSize){

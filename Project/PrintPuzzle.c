@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to print out the Boggle Puzzle
 //Takes in a two dimensional array, and the size of the array
 void printPuzzle(char **array, int size){

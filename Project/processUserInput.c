@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Function to process userInput and avoid overflow and making sure that the input gets cleared
 
 char *processUserInput(char *input, int maxSizeOfInput){

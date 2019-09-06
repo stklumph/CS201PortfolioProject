@@ -1,3 +1,5 @@
+
+#include "Portfolio.h"
 //Functions to get user input and do error checking.
 //These are intended to keep a user from entering bad input.
 
